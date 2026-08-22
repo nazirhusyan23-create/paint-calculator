@@ -37,28 +37,28 @@
       <div class="section-inner">
         <div class="card" style="max-width:520px;">
           <!--
-            NOTE: This is a static site with no backend, so this form cannot send
-            email on its own. Two easy free options:
-            1) Formspree (formspree.io) — sign up free, replace the form "action"
-               below with your Formspree endpoint, and it emails you submissions.
-            2) Or simply remove the form and keep the mailto link below.
+            This form sends directly to nh6639741@gmail.com via Formspree.
+            IMPORTANT: On first deploy, Formspree sends ONE confirmation email
+            to nh6639741@gmail.com after the first test submission — you must
+            click "Confirm" in that email once, or future messages won't arrive.
           -->
-          <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <form class="contact-form" action="https://formspree.io/nh6639741@gmail.com" method="POST">
             <div class="field">
               <label for="name">Name</label>
               <input type="text" id="name" name="name" required>
             </div>
             <div class="field">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
+              <label for="email">Your email</label>
+              <input type="email" id="email" name="_replyto" required>
             </div>
             <div class="field">
               <label for="message">Message</label>
               <textarea id="message" name="message" required></textarea>
             </div>
+            <input type="hidden" name="_subject" value="New message from PaintCalc contact form">
             <button type="submit" class="primary">Send message</button>
           </form>
-          <p class="result-note" style="margin-top:18px;">Or email directly: <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></p>
+          <p class="result-note" style="margin-top:18px;">Or email directly: <a href="mailto:nh6639741@gmail.com">nh6639741@gmail.com</a></p>
         </div>
       </div>
     </section>
