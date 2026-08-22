@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paint Job Cost Calculator — Materials & Labor Estimate | Free Tool</title>
+<meta name="description" content="Free paint job cost calculator. Estimate total materials and labor cost for your painting project based on room size, coats, and rates.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="shell">
+  <nav class="chip-rail" aria-label="Section navigation">
+    <a href="#calculator" class="chip chip-1">Calculate</a>
+    <a href="#how-it-works" class="chip chip-2">How It Works</a>
+    <a href="#faq" class="chip chip-4">FAQ</a>
+  </nav>
+
+  <main>
+    <header class="site-nav">
+      <a href="index.html" class="logo">Paint<span>Calc</span></a>
+      <nav class="links">
+        <a href="index.html">Paint Calculator</a>
+        <a href="wallpaper-calculator.html">Wallpaper Calculator</a>
+        <a href="paint-cost-calculator.html" class="active">Cost Estimator</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <div class="hero compact">
+      <span class="eyebrow"><span class="dot"></span> Free tool · no signup</span>
+      <h1>What will your <em>paint job</em> actually cost?</h1>
+      <p class="lede">Combine materials and optional labor into one total, so there are no surprises before you start.</p>
+    </div>
+
+    <section id="calculator">
+      <div class="section-inner">
+        <div class="card">
+          <h2>Paint job cost calculator</h2>
+          <p class="sub">Fill in what applies — leave labor fields at 0 if you're doing it yourself.</p>
+
+          <form id="costForm">
+            <div class="grid">
+              <div class="field">
+                <label for="length">Room length (ft)</label>
+                <input type="number" id="length" min="0" step="0.1" placeholder="e.g. 12" required>
+              </div>
+              <div class="field">
+                <label for="width">Room width (ft)</label>
+                <input type="number" id="width" min="0" step="0.1" placeholder="e.g. 10" required>
+              </div>
+              <div class="field">
+                <label for="height">Wall height (ft)</label>
+                <input type="number" id="height" min="0" step="0.1" value="8" required>
+              </div>
+              <div class="field">
+                <label for="coats">Number of coats</label>
+                <input type="number" id="coats" min="1" step="1" value="2">
+              </div>
+              <div class="field">
+                <label for="coverage">Coverage per gallon (sq ft)</label>
+                <input type="number" id="coverage" min="50" step="10" value="350">
+              </div>
+              <div class="field">
+                <label for="paintPrice">Paint price ($/gallon)</label>
+                <input type="number" id="paintPrice" min="0" step="0.01" value="42">
+              </div>
+              <div class="field">
+                <label for="primerPrice">Primer price ($/gallon, 0 = skip)</label>
+                <input type="number" id="primerPrice" min="0" step="0.01" value="0">
+              </div>
+              <div class="field">
+                <label for="supplies">Supplies budget ($)</label>
+                <input type="number" id="supplies" min="0" step="1" value="35">
+              </div>
+              <div class="field">
+                <label for="laborRate">Labor rate ($/sq ft, 0 = DIY)</label>
+                <input type="number" id="laborRate" min="0" step="0.1" value="0">
+                <div class="hint">US professional painters typically charge $1.50–$3.50 per sq ft of wall.</div>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button type="submit" class="primary">Calculate total cost</button>
+              <button type="button" class="reset" id="resetBtn">Reset</button>
+            </div>
+          </form>
+
+          <div class="result" id="result">
+            <div class="result-grid">
+              <div class="result-tile">
+                <div class="label">Paint cost</div>
+                <div class="value" id="outPaint">$0</div>
+              </div>
+              <div class="result-tile">
+                <div class="label">Primer cost</div>
+                <div class="value" id="outPrimer">$0</div>
+              </div>
+              <div class="result-tile">
+                <div class="label">Supplies</div>
+                <div class="value" id="outSupplies">$0</div>
+              </div>
+              <div class="result-tile">
+                <div class="label">Labor</div>
+                <div class="value" id="outLabor">$0</div>
+              </div>
+            </div>
+            <div class="result-tile" style="margin-top:16px;">
+              <div class="label">Total estimated cost</div>
+              <div class="value" id="outTotal" style="font-size:2.3rem;">$0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="kicker">Breakdown</span>
+          <h2>How the total is built</h2>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="num">01</div>
+            <h3>Materials</h3>
+            <p>Wall area × coats ÷ coverage gives gallons, rounded up and multiplied by your paint (and optional primer) price.</p>
+          </div>
+          <div class="step">
+            <div class="num">02</div>
+            <h3>Supplies</h3>
+            <p>A flat allowance for brushes, rollers, tape, and drop cloths — adjust to what you already own.</p>
+          </div>
+          <div class="step">
+            <div class="num">03</div>
+            <h3>Labor (optional)</h3>
+            <p>If you're hiring a painter, wall area × your local $/sq ft rate estimates the labor portion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="kicker">Common questions</span>
+          <h2>FAQ</h2>
+        </div>
+        <div class="faq">
+          <details class="faq-item" open>
+            <summary>How much do professional painters charge? <span class="icon">+</span></summary>
+            <p>Most US interior painters charge $1.50–$3.50 per square foot of wall area, or $2–$6 per square foot of floor area for a full room including labor and basic materials. Rates vary heavily by region.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do I need primer? <span class="icon">+</span></summary>
+            <p>Primer is worth adding when painting new drywall, covering a much darker color, switching from oil-based to latex paint, or painting a stained or repaired wall. Skip it for a simple color refresh over a similar, well-sealed shade.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <p>Paint Job Cost Calculator — part of the PaintCalc tools family.</p>
+  <p><a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="privacy-policy.html">Privacy Policy</a></p>
+</footer>
+
+<script>
+  const form = document.getElementById('costForm');
+  const resultBox = document.getElementById('result');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const length = parseFloat(document.getElementById('length').value) || 0;
+    const width = parseFloat(document.getElementById('width').value) || 0;
+    const height = parseFloat(document.getElementById('height').value) || 0;
+    const coats = parseInt(document.getElementById('coats').value) || 1;
+    const coverage = parseFloat(document.getElementById('coverage').value) || 350;
+    const paintPrice = parseFloat(document.getElementById('paintPrice').value) || 0;
+    const primerPrice = parseFloat(document.getElementById('primerPrice').value) || 0;
+    const supplies = parseFloat(document.getElementById('supplies').value) || 0;
+    const laborRate = parseFloat(document.getElementById('laborRate').value) || 0;
+
+    let wallArea = 2 * (length + width) * height;
+    if (wallArea < 0) wallArea = 0;
+
+    const gallonsNeeded = Math.ceil((wallArea * coats) / coverage);
+    const paintCost = gallonsNeeded * paintPrice;
+
+    const primerGallons = primerPrice > 0 ? Math.ceil(wallArea / coverage) : 0;
+    const primerCost = primerGallons * primerPrice;
+
+    const laborCost = laborRate * wallArea;
+
+    const total = paintCost + primerCost + supplies + laborCost;
+
+    document.getElementById('outPaint').textContent = '$' + paintCost.toFixed(2);
+    document.getElementById('outPrimer').textContent = '$' + primerCost.toFixed(2);
+    document.getElementById('outSupplies').textContent = '$' + supplies.toFixed(2);
+    document.getElementById('outLabor').textContent = '$' + laborCost.toFixed(2);
+    document.getElementById('outTotal').textContent = '$' + total.toFixed(2);
+
+    resultBox.classList.add('show');
+    resultBox.scrollIntoView({behavior:'smooth', block:'nearest'});
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', function(){
+    form.reset();
+    resultBox.classList.remove('show');
+  });
+</script>
+</body>
+</html>

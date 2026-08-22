@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paint Calculator — How Much Paint Do You Need? | Free Room Paint Estimator</title>
+<meta name="description" content="Free paint calculator. Enter your room size and get exact gallons of paint needed, including doors, windows, and multiple coats. No signup required.">
+<meta property="og:title" content="Paint Calculator — How Much Paint Do You Need?">
+<meta property="og:description" content="Enter your room dimensions and get an instant, accurate paint estimate in gallons — free, no signup.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many square feet does one gallon of paint cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most standard latex or acrylic wall paints cover 350–400 square feet per gallon on a single coat over primed drywall. Textured, porous, or unprimed surfaces reduce coverage to roughly 250–300 square feet per gallon."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need two coats of paint?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Two coats are recommended for most color changes, new drywall, or when covering a darker existing color. A single coat is usually enough only when repainting the same or a very similar color over a previously painted, well-sealed wall."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much should I subtract for doors and windows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A standard interior door opening removes about 21 square feet from your wall area, and a standard window removes about 15 square feet. This calculator subtracts those automatically based on how many you enter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I round up or down when buying paint?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Always round up to the nearest full gallon or quart. Running short mid-job risks a visible color mismatch between paint batches, while leftover paint is useful for future touch-ups."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="shell">
+  <nav class="chip-rail" aria-label="Section navigation">
+    <a href="#calculator" class="chip chip-1">Calculate</a>
+    <a href="#how-it-works" class="chip chip-2">How It Works</a>
+    <a href="#tips" class="chip chip-3">Coverage Tips</a>
+    <a href="#faq" class="chip chip-4">FAQ</a>
+  </nav>
+
+  <main>
+    <header class="site-nav">
+      <a href="index.html" class="logo">Paint<span>Calc</span></a>
+      <nav class="links">
+        <a href="index.html" class="active">Paint Calculator</a>
+        <a href="wallpaper-calculator.html">Wallpaper Calculator</a>
+        <a href="paint-cost-calculator.html">Cost Estimator</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <span class="eyebrow"><span class="dot"></span> Free tool · no signup</span>
+      <h1>How much paint<br>do you <em>actually</em> need?</h1>
+      <p class="lede">Enter your room size once and get an exact gallon count — doors, windows, and extra coats already subtracted. Stop guessing and buying too much (or running out mid-wall).</p>
+      <div class="swatch-strip" aria-hidden="true">
+        <span style="background:var(--sage)"></span>
+        <span style="background:var(--ochre)"></span>
+        <span style="background:var(--slate)"></span>
+        <span style="background:var(--sage-deep)"></span>
+        <span style="background:#B7C4B2"></span>
+        <span style="background:#EAD9B0"></span>
+      </div>
+    </div>
+
+    <section id="calculator">
+      <div class="section-inner">
+        <div class="card">
+          <h2>Paint calculator</h2>
+          <p class="sub">Measurements in feet. Leave price blank if you just want the gallon count.</p>
+
+          <form id="paintForm">
+            <div class="grid">
+              <div class="field">
+                <label for="length">Room length (ft)</label>
+                <input type="number" id="length" min="0" step="0.1" placeholder="e.g. 12" required>
+              </div>
+              <div class="field">
+                <label for="width">Room width (ft)</label>
+                <input type="number" id="width" min="0" step="0.1" placeholder="e.g. 10" required>
+              </div>
+              <div class="field">
+                <label for="height">Wall height (ft)</label>
+                <input type="number" id="height" min="0" step="0.1" value="8" required>
+              </div>
+              <div class="field">
+                <label for="doors">Doors</label>
+                <input type="number" id="doors" min="0" step="1" value="1">
+              </div>
+              <div class="field">
+                <label for="windows">Windows</label>
+                <input type="number" id="windows" min="0" step="1" value="2">
+              </div>
+              <div class="field">
+                <label for="coats">Number of coats</label>
+                <input type="number" id="coats" min="1" step="1" value="2">
+              </div>
+              <div class="field">
+                <label for="coverage">Coverage per gallon (sq ft)</label>
+                <input type="number" id="coverage" min="50" step="10" value="350">
+              </div>
+              <div class="field">
+                <label for="price">Price per gallon (optional)</label>
+                <input type="number" id="price" min="0" step="0.01" placeholder="e.g. 42.99">
+              </div>
+            </div>
+
+            <div class="actions">
+              <button type="submit" class="primary">Calculate paint needed</button>
+              <button type="button" class="reset" id="resetBtn">Reset</button>
+            </div>
+          </form>
+
+          <div class="result" id="result">
+            <div class="result-grid">
+              <div class="result-tile">
+                <div class="label">Wall area to paint</div>
+                <div class="value" id="outArea">0 <small>sq ft</small></div>
+              </div>
+              <div class="result-tile">
+                <div class="label">Paint needed</div>
+                <div class="value" id="outGallons">0 <small>gallons</small></div>
+              </div>
+              <div class="result-tile" id="costTile" style="display:none;">
+                <div class="label">Estimated cost</div>
+                <div class="value" id="outCost">$0</div>
+              </div>
+              <div class="result-tile">
+                <div class="label">Suggested purchase</div>
+                <div class="value" id="outBuy">—</div>
+              </div>
+            </div>
+            <p class="result-note" id="resultNote"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="kicker">Step 01 — 02 — 03</span>
+          <h2>How this calculator works</h2>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="num">01</div>
+            <h3>Find total wall area</h3>
+            <p>We add up all four walls: 2 × (length + width) × height, using the room dimensions you enter.</p>
+          </div>
+          <div class="step">
+            <div class="num">02</div>
+            <h3>Subtract doors &amp; windows</h3>
+            <p>Each door removes about 21 sq ft and each window removes about 15 sq ft — you don't paint glass or open frames.</p>
+          </div>
+          <div class="step">
+            <div class="num">03</div>
+            <h3>Divide by coverage, multiply by coats</h3>
+            <p>The remaining area is multiplied by your number of coats, then divided by your paint's coverage rate to get gallons.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tips">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="kicker">Before you buy</span>
+          <h2>Coverage tips that actually save money</h2>
+        </div>
+        <div class="tips-list">
+          <div class="tip"><span class="chip-dot" style="background:var(--sage)"></span><p><strong>Textured or unprimed walls drink more paint.</strong> Drop your coverage input to 250–300 sq ft/gallon on stucco, popcorn ceilings, or bare drywall.</p></div>
+          <div class="tip"><span class="chip-dot" style="background:var(--ochre)"></span><p><strong>Dark-to-light color changes usually need 3 coats,</strong> not 2 — adjust the "coats" field accordingly before you buy.</p></div>
+          <div class="tip"><span class="chip-dot" style="background:var(--slate)"></span><p><strong>Buy the next full gallon up, never round down.</strong> Matching a paint batch mid-project rarely comes out identical.</p></div>
+          <div class="tip"><span class="chip-dot" style="background:var(--sage-deep)"></span><p><strong>Ceilings are a separate calculation.</strong> Run this tool again using ceiling length × width as "length" and "width," with height and door/window fields set to 0.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="kicker">Common questions</span>
+          <h2>FAQ</h2>
+        </div>
+        <div class="faq">
+          <details class="faq-item" open>
+            <summary>How many square feet does one gallon of paint cover? <span class="icon">+</span></summary>
+            <p>Most standard latex or acrylic wall paints cover 350–400 square feet per gallon on a single coat over primed drywall. Textured, porous, or unprimed surfaces reduce coverage to roughly 250–300 square feet per gallon — check your specific can's label, since it varies by brand and finish.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do I need two coats of paint? <span class="icon">+</span></summary>
+            <p>Two coats are recommended for most color changes, new drywall, or when covering a darker existing color. A single coat is usually enough only when repainting the same or a very similar color over a previously painted, well-sealed wall.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How much should I subtract for doors and windows? <span class="icon">+</span></summary>
+            <p>A standard interior door opening removes about 21 square feet from your wall area, and a standard window removes about 15 square feet. This calculator subtracts those automatically based on how many you enter.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Should I round up or down when buying paint? <span class="icon">+</span></summary>
+            <p>Always round up to the nearest full gallon or quart. Running short mid-job risks a visible color mismatch between paint batches, while leftover paint is useful for future touch-ups.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <p>Paint Calculator — a free tool for planning home painting projects. Estimates are guidelines; always check your paint can's actual coverage rating.</p>
+  <p><a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="privacy-policy.html">Privacy Policy</a></p>
+</footer>
+
+<script>
+  const form = document.getElementById('paintForm');
+  const resultBox = document.getElementById('result');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const length = parseFloat(document.getElementById('length').value) || 0;
+    const width = parseFloat(document.getElementById('width').value) || 0;
+    const height = parseFloat(document.getElementById('height').value) || 0;
+    const doors = parseInt(document.getElementById('doors').value) || 0;
+    const windows = parseInt(document.getElementById('windows').value) || 0;
+    const coats = parseInt(document.getElementById('coats').value) || 1;
+    const coverage = parseFloat(document.getElementById('coverage').value) || 350;
+    const price = parseFloat(document.getElementById('price').value);
+
+    let wallArea = 2 * (length + width) * height;
+    wallArea -= (doors * 21) + (windows * 15);
+    if (wallArea < 0) wallArea = 0;
+
+    const totalArea = wallArea * coats;
+    const gallonsExact = totalArea / coverage;
+    const gallonsRounded = Math.ceil(gallonsExact * 4) / 4;
+
+    document.getElementById('outArea').innerHTML = Math.round(wallArea).toLocaleString() + ' <small>sq ft</small>';
+    document.getElementById('outGallons').innerHTML = gallonsRounded.toFixed(2).replace(/\.00$/,'') + ' <small>gallons</small>';
+
+    let buyText = '';
+    const fullGallons = Math.floor(gallonsRounded);
+    const remainder = gallonsRounded - fullGallons;
+    if (fullGallons >= 1) buyText += fullGallons + ' gal';
+    if (remainder >= 0.74) buyText += (buyText ? ' + ' : '') + '1 gal';
+    else if (remainder >= 0.24) buyText += (buyText ? ' + ' : '') + '1 qt';
+    if (!buyText) buyText = '1 qt';
+
+    document.getElementById('outBuy').textContent = buyText;
+
+    const costTile = document.getElementById('costTile');
+    if (!isNaN(price) && price > 0) {
+      const cost = Math.ceil(gallonsRounded) * price;
+      document.getElementById('outCost').textContent = '$' + cost.toFixed(2);
+      costTile.style.display = 'block';
+    } else {
+      costTile.style.display = 'none';
+    }
+
+    document.getElementById('resultNote').textContent =
+      `Based on ${coats} coat(s) over ${Math.round(wallArea).toLocaleString()} sq ft of paintable wall, at ${coverage} sq ft/gallon coverage.`;
+
+    resultBox.classList.add('show');
+    resultBox.scrollIntoView({behavior:'smooth', block:'nearest'});
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', function(){
+    form.reset();
+    resultBox.classList.remove('show');
+  });
+</script>
+</body>
+</html>

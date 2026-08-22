@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Painting Guides & Tips | PaintCalc</title>
+<meta name="description" content="Practical guides on paint finishes, wall prep, drying times, and more — from the team behind PaintCalc's free calculators.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.post-list{display:grid; gap:16px;}
+.post-card{
+  display:flex; justify-content:space-between; align-items:center; gap:20px;
+  background:var(--paper); border:1px solid var(--line); border-radius:12px;
+  padding:22px 24px; text-decoration:none; color:var(--ink);
+}
+.post-card:hover{border-color:var(--sage);}
+.post-card .meta{font-family:'JetBrains Mono',monospace; font-size:.75rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px;}
+.post-card h3{font-size:1.15rem;}
+.post-card p{color:var(--ink-soft); font-size:.92rem; margin-top:6px;}
+.post-card .arrow{font-family:'JetBrains Mono',monospace; color:var(--sage-deep); font-size:1.3rem; flex-shrink:0;}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="chip-rail" aria-label="Section navigation">
+    <a href="#posts" class="chip chip-1">Guides</a>
+  </nav>
+  <main>
+    <header class="site-nav">
+      <a href="index.html" class="logo">Paint<span>Calc</span></a>
+      <nav class="links">
+        <a href="index.html">Paint Calculator</a>
+        <a href="wallpaper-calculator.html">Wallpaper Calculator</a>
+        <a href="paint-cost-calculator.html">Cost Estimator</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <div class="hero compact">
+      <h1>Painting guides &amp; tips</h1>
+      <p class="lede">Short, practical guides to go with the calculators — no fluff, just what you need to know before you pick up a brush.</p>
+    </div>
+
+    <section id="posts">
+      <div class="section-inner">
+        <div class="post-list">
+          <a class="post-card" href="article-paint-finish-guide.html">
+            <div>
+              <div class="meta">Guide · 6 min read</div>
+              <h3>Paint Finish Guide: Matte, Eggshell, Satin, Semi-Gloss &amp; Gloss</h3>
+              <p>Which sheen to use in which room, and why it matters more than the color.</p>
+            </div>
+            <span class="arrow">→</span>
+          </a>
+          <a class="post-card" href="article-wall-prep-checklist.html">
+            <div>
+              <div class="meta">Guide · 5 min read</div>
+              <h3>How to Prep a Wall Before Painting: Complete Checklist</h3>
+              <p>The six-step process that prevents peeling, patches, and uneven color.</p>
+            </div>
+            <span class="arrow">→</span>
+          </a>
+          <a class="post-card" href="article-paint-drying-time.html">
+            <div>
+              <div class="meta">Guide · 4 min read</div>
+              <h3>How Long Does Paint Take to Dry and Cure?</h3>
+              <p>Dry time vs cure time explained, with real timeframes by paint type.</p>
+            </div>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <p>PaintCalc — free tools and guides for planning home painting projects.</p>
+  <p><a href="blog.html">Blog</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="privacy-policy.html">Privacy Policy</a></p>
+</footer>
+</body>
+</html>

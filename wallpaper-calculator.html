@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wallpaper Calculator — How Many Rolls Do You Need? | Free Estimator</title>
+<meta name="description" content="Free wallpaper calculator. Enter your room size and roll dimensions to get the exact number of wallpaper rolls needed, with waste factor included.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much waste should I add for wallpaper with a pattern repeat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Add 15-20% waste for wallpaper with a pattern repeat, since matching the pattern across strips wastes material. Plain or textured wallpaper without a repeat needs only about 10% waste allowance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a standard wallpaper roll size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A standard single roll is about 20.5 inches wide and 33 feet long, covering roughly 56 square feet before waste. European rolls are often narrower (20.9 inches) but longer. Always check the label on your specific roll."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="shell">
+  <nav class="chip-rail" aria-label="Section navigation">
+    <a href="#calculator" class="chip chip-1">Calculate</a>
+    <a href="#how-it-works" class="chip chip-2">How It Works</a>
+    <a href="#faq" class="chip chip-4">FAQ</a>
+  </nav>
+
+  <main>
+    <header class="site-nav">
+      <a href="index.html" class="logo">Paint<span>Calc</span></a>
+      <nav class="links">
+        <a href="index.html">Paint Calculator</a>
+        <a href="wallpaper-calculator.html" class="active">Wallpaper Calculator</a>
+        <a href="paint-cost-calculator.html">Cost Estimator</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <div class="hero compact">
+      <span class="eyebrow"><span class="dot"></span> Free tool · no signup</span>
+      <h1>How many rolls of <em>wallpaper</em> do you need?</h1>
+      <p class="lede">Enter your room and roll dimensions to get the exact roll count, with a waste factor for pattern matching already built in.</p>
+    </div>
+
+    <section id="calculator">
+      <div class="section-inner">
+        <div class="card">
+          <h2>Wallpaper calculator</h2>
+          <p class="sub">Room measurements in feet, roll width in inches, roll length in feet.</p>
+
+          <form id="wpForm">
+            <div class="grid">
+              <div class="field">
+                <label for="length">Room length (ft)</label>
+                <input type="number" id="length" min="0" step="0.1" placeholder="e.g. 12" required>
+              </div>
+              <div class="field">
+                <label for="width">Room width (ft)</label>
+                <input type="number" id="width" min="0" step="0.1" placeholder="e.g. 10" required>
+              </div>
+              <div class="field">
+                <label for="height">Wall height (ft)</label>
+                <input type="number" id="height" min="0" step="0.1" value="8" required>
+              </div>
+              <div class="field">
+                <label for="doors">Doors</label>
+                <input type="number" id="doors" min="0" step="1" value="1">
+              </div>
+              <div class="field">
+                <label for="windows">Windows</label>
+                <input type="number" id="windows" min="0" step="1" value="2">
+              </div>
+              <div class="field">
+                <label for="rollWidth">Roll width (inches)</label>
+                <input type="number" id="rollWidth" min="10" step="0.1" value="20.5">
+              </div>
+              <div class="field">
+                <label for="rollLength">Roll length (ft)</label>
+                <input type="number" id="rollLength" min="5" step="0.5" value="33">
+              </div>
+              <div class="field">
+                <label for="repeat">Pattern repeat?</label>
+                <select id="repeat">
+                  <option value="0.10">No repeat (plain/textured)</option>
+                  <option value="0.15" selected>Small repeat</option>
+                  <option value="0.20">Large repeat</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button type="submit" class="primary">Calculate rolls needed</button>
+              <button type="button" class="reset" id="resetBtn">Reset</button>
+            </div>
+          </form>
+
+          <div class="result" id="result">
+            <div class="result-grid">
+              <div class="result-tile">
+                <div class="label">Wall area to cover</div>
+                <div class="value" id="outArea">0 <small>sq ft</small></div>
+              </div>
+              <div class="result-tile">
+                <div class="label">Rolls needed</div>
+                <div class="value" id="outRolls">0 <small>rolls</small></div>
+              </div>
+            </div>
+            <p class="result-note" id="resultNote"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="kicker">Step 01 — 02 — 03</span>
+          <h2>How this calculator works</h2>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="num">01</div>
+            <h3>Wall area</h3>
+            <p>Same formula as paint: 2 × (length + width) × height, minus doors (21 sq ft each) and windows (15 sq ft each).</p>
+          </div>
+          <div class="step">
+            <div class="num">02</div>
+            <h3>Coverage per roll</h3>
+            <p>Roll width (converted to feet) × roll length, minus your chosen waste factor for pattern matching.</p>
+          </div>
+          <div class="step">
+            <div class="num">03</div>
+            <h3>Round up to whole rolls</h3>
+            <p>Wallpaper can only be bought in full rolls, so the result always rounds up — never buy a fraction of a roll.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="kicker">Common questions</span>
+          <h2>FAQ</h2>
+        </div>
+        <div class="faq">
+          <details class="faq-item" open>
+            <summary>How much waste should I add for a pattern repeat? <span class="icon">+</span></summary>
+            <p>Add 15-20% waste for wallpaper with a pattern repeat, since matching the pattern across strips wastes material. Plain or textured wallpaper without a repeat needs only about 10% waste allowance.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What is a standard wallpaper roll size? <span class="icon">+</span></summary>
+            <p>A standard single roll is about 20.5 inches wide and 33 feet long, covering roughly 56 square feet before waste. European rolls are often narrower but longer — always check the label on your specific roll.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <p>Wallpaper Calculator — part of the PaintCalc tools family.</p>
+  <p><a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="privacy-policy.html">Privacy Policy</a></p>
+</footer>
+
+<script>
+  const form = document.getElementById('wpForm');
+  const resultBox = document.getElementById('result');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const length = parseFloat(document.getElementById('length').value) || 0;
+    const width = parseFloat(document.getElementById('width').value) || 0;
+    const height = parseFloat(document.getElementById('height').value) || 0;
+    const doors = parseInt(document.getElementById('doors').value) || 0;
+    const windows = parseInt(document.getElementById('windows').value) || 0;
+    const rollWidthIn = parseFloat(document.getElementById('rollWidth').value) || 20.5;
+    const rollLength = parseFloat(document.getElementById('rollLength').value) || 33;
+    const waste = parseFloat(document.getElementById('repeat').value) || 0.15;
+
+    let wallArea = 2 * (length + width) * height;
+    wallArea -= (doors * 21) + (windows * 15);
+    if (wallArea < 0) wallArea = 0;
+
+    const rollWidthFt = rollWidthIn / 12;
+    const rollCoverage = rollWidthFt * rollLength * (1 - waste);
+    const rollsNeeded = Math.ceil(wallArea / rollCoverage);
+
+    document.getElementById('outArea').innerHTML = Math.round(wallArea).toLocaleString() + ' <small>sq ft</small>';
+    document.getElementById('outRolls').innerHTML = rollsNeeded + ' <small>rolls</small>';
+    document.getElementById('resultNote').textContent =
+      `Each roll covers about ${Math.round(rollCoverage)} usable sq ft after a ${Math.round(waste*100)}% waste allowance.`;
+
+    resultBox.classList.add('show');
+    resultBox.scrollIntoView({behavior:'smooth', block:'nearest'});
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', function(){
+    form.reset();
+    resultBox.classList.remove('show');
+  });
+</script>
+</body>
+</html>
