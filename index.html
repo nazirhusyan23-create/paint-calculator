@@ -3,7 +3,6 @@
 <head>
 <meta name="google-site-verification" content="9bSXV0oYwCNz4T_QT4-FbvCW3bJShIEgX8HZMbep9Co" />
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2006445566626425" crossorigin="anonymous"></script>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Paint Calculator — How Much Paint Do You Need? | Free Room Paint Estimator</title>
@@ -68,7 +67,10 @@
 
   <main>
     <header class="site-nav">
-      <a href="/" class="logo">Paint<span>Calc</span></a>
+      <a href="/" class="logo">
+        <span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="13" height="6" rx="1"/><path d="M8.5 10v4.5"/><rect x="5.5" y="14.5" width="6" height="6.5" rx="1"/></svg></span>
+        Paint<span>Calc</span>
+      </a>
       <nav class="links">
         <a href="/" class="active">Paint Calculator</a>
         <a href="/wallpaper-calculator">Wallpaper Calculator</a>
@@ -79,6 +81,9 @@
     </header>
 
     <div class="hero">
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="4" width="13" height="6" rx="1"/><path d="M8.5 10v4.5"/><rect x="5.5" y="14.5" width="6" height="6.5" rx="1"/></svg>
+      </div>
       <span class="eyebrow"><span class="dot"></span> Free tool · no signup</span>
       <h1>How much paint<br>do you <em>actually</em> need?</h1>
       <p class="lede">Enter your room size once and get an exact gallon count — doors, windows, and extra coats already subtracted. Stop guessing and buying too much (or running out mid-wall).</p>
@@ -101,35 +106,35 @@
           <form id="paintForm">
             <div class="grid">
               <div class="field">
-                <label for="length">Room length (ft)</label>
+                <label for="length"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="20" height="6" rx="1"/><path d="M6 9v3M10 9v3M14 9v3M18 9v3"/></svg>Room length (ft)</label>
                 <input type="number" id="length" min="0" step="0.1" placeholder="e.g. 12" required>
               </div>
               <div class="field">
-                <label for="width">Room width (ft)</label>
+                <label for="width"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="20" height="6" rx="1"/><path d="M6 9v3M10 9v3M14 9v3M18 9v3"/></svg>Room width (ft)</label>
                 <input type="number" id="width" min="0" step="0.1" placeholder="e.g. 10" required>
               </div>
               <div class="field">
-                <label for="height">Wall height (ft)</label>
+                <label for="height"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M8 6l4-4 4 4M8 18l4 4 4-4"/></svg>Wall height (ft)</label>
                 <input type="number" id="height" min="0" step="0.1" value="8" required>
               </div>
               <div class="field">
-                <label for="doors">Doors</label>
+                <label for="doors"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="1"/><circle cx="15" cy="12" r="1" fill="currentColor" stroke="none"/></svg>Doors</label>
                 <input type="number" id="doors" min="0" step="1" value="1">
               </div>
               <div class="field">
-                <label for="windows">Windows</label>
+                <label for="windows"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M12 3v18M3 12h18"/></svg>Windows</label>
                 <input type="number" id="windows" min="0" step="1" value="2">
               </div>
               <div class="field">
-                <label for="coats">Number of coats</label>
+                <label for="coats"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>Number of coats</label>
                 <input type="number" id="coats" min="1" step="1" value="2">
               </div>
               <div class="field">
-                <label for="coverage">Coverage per gallon (sq ft)</label>
+                <label for="coverage"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c4 5 7 8.5 7 12a7 7 0 1 1-14 0c0-3.5 3-7 7-12Z"/></svg>Coverage per gallon (sq ft)</label>
                 <input type="number" id="coverage" min="50" step="10" value="350">
               </div>
               <div class="field">
-                <label for="price">Price per gallon (optional)</label>
+                <label for="price"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 12 22 2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8Z"/><circle cx="7" cy="7" r="1.3" fill="currentColor" stroke="none"/></svg>Price per gallon (optional)</label>
                 <input type="number" id="price" min="0" step="0.01" placeholder="e.g. 42.99">
               </div>
             </div>
@@ -143,18 +148,22 @@
           <div class="result" id="result">
             <div class="result-grid">
               <div class="result-tile">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M8 3v18M3 8h5M3 16h5"/></svg>
                 <div class="label">Wall area to paint</div>
                 <div class="value" id="outArea">0 <small>sq ft</small></div>
               </div>
               <div class="result-tile">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c4 5 7 8.5 7 12a7 7 0 1 1-14 0c0-3.5 3-7 7-12Z"/></svg>
                 <div class="label">Paint needed</div>
                 <div class="value" id="outGallons">0 <small>gallons</small></div>
               </div>
               <div class="result-tile" id="costTile" style="display:none;">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 12 22 2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8Z"/><circle cx="7" cy="7" r="1.3" fill="currentColor" stroke="none"/></svg>
                 <div class="label">Estimated cost</div>
                 <div class="value" id="outCost">$0</div>
               </div>
               <div class="result-tile">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.5 11a2 2 0 0 1-2 1.8H8.5a2 2 0 0 1-2-1.8L5 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>
                 <div class="label">Suggested purchase</div>
                 <div class="value" id="outBuy">—</div>
               </div>
@@ -173,16 +182,19 @@
         </div>
         <div class="steps">
           <div class="step">
+            <div class="icon-badge-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M8 3v18M3 8h5M3 16h5"/></svg></div>
             <div class="num">01</div>
             <h3>Find total wall area</h3>
             <p>We add up all four walls: 2 × (length + width) × height, using the room dimensions you enter.</p>
           </div>
           <div class="step">
+            <div class="icon-badge-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="1"/><circle cx="15" cy="12" r="1" fill="currentColor" stroke="none"/></svg></div>
             <div class="num">02</div>
             <h3>Subtract doors &amp; windows</h3>
             <p>Each door removes about 21 sq ft and each window removes about 15 sq ft — you don't paint glass or open frames.</p>
           </div>
           <div class="step">
+            <div class="icon-badge-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c4 5 7 8.5 7 12a7 7 0 1 1-14 0c0-3.5 3-7 7-12Z"/></svg></div>
             <div class="num">03</div>
             <h3>Divide by coverage, multiply by coats</h3>
             <p>The remaining area is multiplied by your number of coats, then divided by your paint's coverage rate to get gallons.</p>
@@ -198,10 +210,22 @@
           <h2>Coverage tips that actually save money</h2>
         </div>
         <div class="tips-list">
-          <div class="tip"><span class="chip-dot" style="background:var(--sage)"></span><p><strong>Textured or unprimed walls drink more paint.</strong> Drop your coverage input to 250–300 sq ft/gallon on stucco, popcorn ceilings, or bare drywall.</p></div>
-          <div class="tip"><span class="chip-dot" style="background:var(--ochre)"></span><p><strong>Dark-to-light color changes usually need 3 coats,</strong> not 2 — adjust the "coats" field accordingly before you buy.</p></div>
-          <div class="tip"><span class="chip-dot" style="background:var(--slate)"></span><p><strong>Buy the next full gallon up, never round down.</strong> Matching a paint batch mid-project rarely comes out identical.</p></div>
-          <div class="tip"><span class="chip-dot" style="background:var(--sage-deep)"></span><p><strong>Ceilings are a separate calculation.</strong> Run this tool again using ceiling length × width as "length" and "width," with height and door/window fields set to 0.</p></div>
+          <div class="tip">
+            <span class="icon-dot" style="background:var(--sage)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c4 5 7 8.5 7 12a7 7 0 1 1-14 0c0-3.5 3-7 7-12Z"/></svg></span>
+            <p><strong>Textured or unprimed walls drink more paint.</strong> Drop your coverage input to 250–300 sq ft/gallon on stucco, popcorn ceilings, or bare drywall.</p>
+          </div>
+          <div class="tip">
+            <span class="icon-dot" style="background:var(--ochre)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
+            <p><strong>Dark-to-light color changes usually need 3 coats,</strong> not 2 — adjust the "coats" field accordingly before you buy.</p>
+          </div>
+          <div class="tip">
+            <span class="icon-dot" style="background:var(--slate)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg></span>
+            <p><strong>Buy the next full gallon up, never round down.</strong> Matching a paint batch mid-project rarely comes out identical.</p>
+          </div>
+          <div class="tip">
+            <span class="icon-dot" style="background:var(--sage-deep)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M8 3v18M3 8h5M3 16h5"/></svg></span>
+            <p><strong>Ceilings are a separate calculation.</strong> Run this tool again using ceiling length × width as "length" and "width," with height and door/window fields set to 0.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -237,7 +261,7 @@
 
 <footer>
   <p>Paint Calculator — a free tool for planning home painting projects. Estimates are guidelines; always check your paint can's actual coverage rating.</p>
-  <p><a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy-policy">Privacy Policy</a></p>
+  <p><a href="/blog">Blog</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy-policy">Privacy Policy</a></p>
 </footer>
 
 <script>

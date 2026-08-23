@@ -24,7 +24,7 @@
 
   <main>
     <header class="site-nav">
-      <a href="/" class="logo">Paint<span>Calc</span></a>
+      <a href="/" class="logo"><span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="13" height="6" rx="1"/><path d="M8.5 10v4.5"/><rect x="5.5" y="14.5" width="6" height="6.5" rx="1"/></svg></span>Paint<span>Calc</span></a>
       <nav class="links">
         <a href="/">Paint Calculator</a>
         <a href="/wallpaper-calculator">Wallpaper Calculator</a>
@@ -35,6 +35,7 @@
     </header>
 
     <div class="hero compact">
+      <div class="hero-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20.6 13.4 12 22 2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8Z"/><circle cx="7" cy="7" r="1.3"/></svg></div>
       <span class="eyebrow"><span class="dot"></span> Free tool · no signup</span>
       <h1>What will your <em>paint job</em> actually cost?</h1>
       <p class="lede">Combine materials and optional labor into one total, so there are no surprises before you start.</p>
@@ -49,39 +50,39 @@
           <form id="costForm">
             <div class="grid">
               <div class="field">
-                <label for="length">Room length (ft)</label>
+                <label for="length"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="20" height="6" rx="1"/><path d="M6 9v3M10 9v3M14 9v3M18 9v3"/></svg>Room length (ft)</label>
                 <input type="number" id="length" min="0" step="0.1" placeholder="e.g. 12" required>
               </div>
               <div class="field">
-                <label for="width">Room width (ft)</label>
+                <label for="width"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="20" height="6" rx="1"/><path d="M6 9v3M10 9v3M14 9v3M18 9v3"/></svg>Room width (ft)</label>
                 <input type="number" id="width" min="0" step="0.1" placeholder="e.g. 10" required>
               </div>
               <div class="field">
-                <label for="height">Wall height (ft)</label>
+                <label for="height"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M8 6l4-4 4 4M8 18l4 4 4-4"/></svg>Wall height (ft)</label>
                 <input type="number" id="height" min="0" step="0.1" value="8" required>
               </div>
               <div class="field">
-                <label for="coats">Number of coats</label>
+                <label for="coats"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>Number of coats</label>
                 <input type="number" id="coats" min="1" step="1" value="2">
               </div>
               <div class="field">
-                <label for="coverage">Coverage per gallon (sq ft)</label>
+                <label for="coverage"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c4 5 7 8.5 7 12a7 7 0 1 1-14 0c0-3.5 3-7 7-12Z"/></svg>Coverage per gallon (sq ft)</label>
                 <input type="number" id="coverage" min="50" step="10" value="350">
               </div>
               <div class="field">
-                <label for="paintPrice">Paint price ($/gallon)</label>
+                <label for="paintPrice"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 12 22 2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8Z"/><circle cx="7" cy="7" r="1.3" fill="currentColor" stroke="none"/></svg>Paint price ($/gallon)</label>
                 <input type="number" id="paintPrice" min="0" step="0.01" value="42">
               </div>
               <div class="field">
-                <label for="primerPrice">Primer price ($/gallon, 0 = skip)</label>
+                <label for="primerPrice"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 12 22 2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8Z"/><circle cx="7" cy="7" r="1.3" fill="currentColor" stroke="none"/></svg>Primer price ($/gallon, 0 = skip)</label>
                 <input type="number" id="primerPrice" min="0" step="0.01" value="0">
               </div>
               <div class="field">
-                <label for="supplies">Supplies budget ($)</label>
+                <label for="supplies"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.5 11a2 2 0 0 1-2 1.8H8.5a2 2 0 0 1-2-1.8L5 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>Supplies budget ($)</label>
                 <input type="number" id="supplies" min="0" step="1" value="35">
               </div>
               <div class="field">
-                <label for="laborRate">Labor rate ($/sq ft, 0 = DIY)</label>
+                <label for="laborRate"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>Labor rate ($/sq ft, 0 = DIY)</label>
                 <input type="number" id="laborRate" min="0" step="0.1" value="0">
                 <div class="hint">US professional painters typically charge $1.50–$3.50 per sq ft of wall.</div>
               </div>
@@ -96,18 +97,22 @@
           <div class="result" id="result">
             <div class="result-grid">
               <div class="result-tile">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 12 22 2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8Z"/><circle cx="7" cy="7" r="1.3" fill="currentColor" stroke="none"/></svg>
                 <div class="label">Paint cost</div>
                 <div class="value" id="outPaint">$0</div>
               </div>
               <div class="result-tile">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c4 5 7 8.5 7 12a7 7 0 1 1-14 0c0-3.5 3-7 7-12Z"/></svg>
                 <div class="label">Primer cost</div>
                 <div class="value" id="outPrimer">$0</div>
               </div>
               <div class="result-tile">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.5 11a2 2 0 0 1-2 1.8H8.5a2 2 0 0 1-2-1.8L5 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>
                 <div class="label">Supplies</div>
                 <div class="value" id="outSupplies">$0</div>
               </div>
               <div class="result-tile">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
                 <div class="label">Labor</div>
                 <div class="value" id="outLabor">$0</div>
               </div>
@@ -129,16 +134,19 @@
         </div>
         <div class="steps">
           <div class="step">
+            <div class="icon-badge-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c4 5 7 8.5 7 12a7 7 0 1 1-14 0c0-3.5 3-7 7-12Z"/></svg></div>
             <div class="num">01</div>
             <h3>Materials</h3>
             <p>Wall area × coats ÷ coverage gives gallons, rounded up and multiplied by your paint (and optional primer) price.</p>
           </div>
           <div class="step">
+            <div class="icon-badge-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.5 11a2 2 0 0 1-2 1.8H8.5a2 2 0 0 1-2-1.8L5 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg></div>
             <div class="num">02</div>
             <h3>Supplies</h3>
             <p>A flat allowance for brushes, rollers, tape, and drop cloths — adjust to what you already own.</p>
           </div>
           <div class="step">
+            <div class="icon-badge-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
             <div class="num">03</div>
             <h3>Labor (optional)</h3>
             <p>If you're hiring a painter, wall area × your local $/sq ft rate estimates the labor portion.</p>
