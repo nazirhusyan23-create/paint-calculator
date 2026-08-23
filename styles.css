@@ -167,7 +167,11 @@ main{min-width:0;}
 .site-nav .links a{
   color:var(--ink-soft);
   text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:6px;
 }
+.site-nav .links a svg{width:15px;height:15px;flex-shrink:0;}
 .site-nav .links a:hover, .site-nav .links a.active{color:var(--sage-deep);}
 
 /* ---------- hero ---------- */
